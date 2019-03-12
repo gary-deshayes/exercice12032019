@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Offer{% endblock %}
+
+{% block body %}
+    <h1>Offre</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ offer.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ offer.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ offer.description }}</td>
+            </tr>
+            <tr>
+                <th>Job</th>
+                <td>{{ offer.getIdJob }}</td>
+            </tr>
+            <tr>
+                <th>Contrat</th>
+                <td>{{ offer.getIdContract }}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    {% if offer.competences | length > 0 %}
+        <p>Liste des compétences</p>
+        <ul>
+            {% for competence in offer.competences %}
+                <li>{{ competence.name }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucune compétences liée à cette offre.</p>
+    {% endif %}
+
+    <a href="{{ path('offer_index') }}">back to list</a>
+
+    <a href="{{ path('offer_edit', {'id': offer.id}) }}">edit</a>
+
+    {{ include('offer/_delete_form.html.twig') }}
+{% endblock %}

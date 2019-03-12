@@ -6,6 +6,16 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        <nav>
+            <ul>
+                <li><a href="{{path("index")}}">Accueil</a></li>
+                <li><a href="{{path("job_index")}}">Job</a></li>
+                <li><a href="{{path("competence_index")}}">Compétence</a></li>
+                <li><a href="{{path("contract_index")}}">Contrat</a></li>
+                <li><a href="{{path("candidature_index")}}">Candidature</a></li>
+                <li><a href="{{path("offer_index")}}">Offres</a></li>
+            </ul>
+        </nav>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
